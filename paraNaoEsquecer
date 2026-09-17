@@ -1,0 +1,6 @@
+positive(x) = 1
+negative(o) = 0
+
+1 = x
+0 = o
+-1 = b

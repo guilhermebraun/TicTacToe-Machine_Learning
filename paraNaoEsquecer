@@ -1,5 +1,7 @@
 positive(x) = 1
-negative(o) = 0
+negative(o) = -1
+empate = 2
+tem jogo = 0
 
 1 = x
 0 = o

@@ -22,7 +22,7 @@ xTreino = normalizador_X.fit_transform(xTreino)
 xValidacao = normalizador_X.transform(xValidacao)
 xTeste = normalizador_X.transform(xTeste)
 
-mlp = MLPClassifier(hidden_layer_sizes=(10,), activation='logistic', solver='adam', learning_rate_init=0.001, max_iter=2000, random_state=42)
+mlp = MLPClassifier(hidden_layer_sizes=(20,), activation='logistic', solver='adam', learning_rate_init=0.001, max_iter=3000, random_state=42)
 
 #Treinar o modelo
 mlp.fit(xTreino, yTreino)
@@ -39,6 +39,19 @@ recall = recall_score(yValidacao, yPredValidacao, average="weighted")
 f1 = f1_score(yValidacao, yPredValidacao, average="weighted")
 
 print("\nResultados da validação:")
+print("Acurácia:", acuracia)
+print("Precisão:", precisao)
+print("Recall:", recall)
+print("F-measure:", f1)
+
+yPredTeste = mlp.predict(xTeste)
+
+acuracia = accuracy_score(yTeste, yPredTeste)
+precisao = precision_score(yTeste, yPredTeste, average="weighted")
+recall = recall_score(yTeste, yPredTeste, average="weighted")
+f1 = f1_score(yTeste, yPredTeste, average="weighted")
+
+print("\nResultados do teste:")
 print("Acurácia:", acuracia)
 print("Precisão:", precisao)
 print("Recall:", recall)
